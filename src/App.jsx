@@ -6,6 +6,7 @@ import {
 } 
 from 'react-router-dom'
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import MainLayout from './Layout/MainLayout'
 import HomePage from './pages/HomePage'
 import JobPage from './pages/JobPage'
@@ -16,6 +17,7 @@ import AddJobPage from './pages/AddJobPage'
 
 
 const App = () => {
+  // POST
   const addJob = async (newJob) => {
     const fetchData = await fetch('/api/jobs', {
       method: 'POST',
@@ -23,6 +25,14 @@ const App = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newJob)
+    });
+    return;
+  }
+
+  //DELETE
+  const deleteJob = async (id) => {
+    const fetchDelete = await fetch(`/api/jobs/${id}`, {
+      method: 'DELETE',
     });
     return;
   }
@@ -34,7 +44,7 @@ const App = () => {
       <Route index element={<HomePage/>} />
       <Route path="/jobs" element={<JobPage/>}/>
       <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob}/>}/>
-      <Route path="/jobs/:id" element={<JobDetailPage/>} loader={jobLoader}/>
+      <Route path="/jobs/:id" element={<JobDetailPage deleteJob={deleteJob}/>} loader={jobLoader}/>
       <Route path="*" element={<NotFoundPage/>}/>
     </Route>
   

@@ -83,20 +83,6 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
-    },
-    {
-      "id": "5282",
-      "title": "t",
-      "type": "Remote",
-      "location": "dcd",
-      "description": "cd",
-      "salary": "Under $50K",
-      "company": {
-        "name": "cd",
-        "description": "cdcd",
-        "companyEmail": "a@gmail.com",
-        "companyPhone": "05640504"
-      }
     }
   ]
 }
